@@ -8,7 +8,7 @@ let cloth1 = [
   ["blue_sunglasses", "eyewear"],
   ["green_turban", "headgear"],
   ["sd", "eyewear"],
-  ["sd", "eyewear"],
+  ["sd", "earwear"],
 ];
 
 let cloth2 = [
@@ -39,7 +39,6 @@ const check = (arr) => {
     let chk = true;
 
     for (let j = 0; j < mock.length; j++) {
-      console.log(mock[j], arr[i]);
       if (mock[j] === arr[i]) {
         num += 1;
         chk = false;
@@ -49,7 +48,7 @@ const check = (arr) => {
       mock.push(arr[i]);
     }
   }
-  console.log(num);
+  console.log(num, mock);
   let mkSet = [...new Set(object2)];
   if (mkSet.length > 1) return { length: mkSet.length, multi: num };
   if (mkSet.length <= 1) return { length: 0, multi: 0 };
