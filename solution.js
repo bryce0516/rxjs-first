@@ -25,13 +25,14 @@ function solution(clothes) {
         clothes[j] + " ^^^^^^^^ " + clothes[i],
         JSON.stringify(clothes[j][1]) === JSON.stringify(clothes[i][1])
       );
-      if (JSON.stringify(clothes[j][1]) === JSON.stringify(clothes[i][1])) {
+      if (JSON.stringify(clothes[j][1]) !== JSON.stringify(clothes[i][1])) {
         chk = false;
+        object1.push([clothes[i], clothes[j]]);
       }
     }
-    if (chk) {
-      object1.push(clothes[i]);
-    }
+    // if (chk) {
+    //   object1.push(clothes[i]);
+    // }
   }
   console.log("this is object1", object1);
   for (let i = 0; i < clothes.length; i++) {
