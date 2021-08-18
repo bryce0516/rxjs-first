@@ -1,14 +1,13 @@
 const { of } = require("rxjs");
 
 let cloth1 = [
-  // ["crow_mask", "face"],
-  // ["blue_sunglasses", "face"],
-  // ["smoky_makeup", "face"],
-  ["yellow_hat", "headgear"],
-  ["blue_sunglasses", "eyewear"],
-  ["green_turban", "headgear"],
-  ["sd", "eyewear"],
-  ["sd", "earwear"],
+  ["crow_mask", "face"],
+  ["blue_sunglasses", "face"],
+  ["smoky_makeup", "face"],
+  // ["yellow_hat", "headgear"],
+  // ["blue_sunglasses", "eyewear"],
+  // ["green_turban", "headgear"],
+  // ["sd", "eyewear"],
 ];
 
 let cloth2 = [
@@ -34,28 +33,52 @@ for (let i = 0; i < object1.length; i++) {
 const answer = cloth1.length;
 const mock = [];
 let num = 0;
-const check = (arr) => {
+let overlap = 0;
+let nooverlap = 0;
+let total = cloth1.length;
+let nooverlapmulti = total - 1;
+let copy = [];
+const check = (arr, arr2) => {
   for (let i = 0; i < arr.length; i++) {
-    let chk = true;
-
-    for (let j = 0; j < mock.length; j++) {
-      if (mock[j] === arr[i]) {
-        num += 1;
-        chk = false;
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr[i] !== arr2[j]) {
+        copy.push([arr[i], arr2[j]]);
       }
     }
-    if (chk) {
-      mock.push(arr[i]);
-    }
   }
-  console.log(num, mock);
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   let chk = true;
+
+  //   for (let j = 0; j < mock.length; j++) {
+  //     if (mock[j] === arr[i]) {
+  //       num += 1;
+  //       chk = false;
+  //     }
+  //   }
+  //   if (chk) {
+  //     mock.push(arr[i]);
+  //   }
+  // }
+
   let mkSet = [...new Set(object2)];
+  console.log(num, mock, mkSet.length);
   if (mkSet.length > 1) return { length: mkSet.length, multi: num };
   if (mkSet.length <= 1) return { length: 0, multi: 0 };
+
+  // overlap = total - num + 1;
+  // nooverlap = total - overlap;
+  // console.log(copy);
+  // // console.log(total - 1, nooverlap, mock.length, overlap);
+  // const result = (total - 1) * nooverlap + mock.length * overlap;
+  return copy.length;
 };
-const value = check(object2);
-console.log(value.length, value.multi);
-console.log(answer + value.length * value.multi);
+
+const value = check(object2, object2);
+console.log(value);
+
+// console.log(value.length, value.multi);
+// console.log(answer + value.length * value.multi);
 
 // const getCombinations = function (arr, selectNumber) {
 //   const results = [];
