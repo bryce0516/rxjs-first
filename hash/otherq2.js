@@ -1,11 +1,11 @@
 let cloth1 = [
   // ["crow_mask", "face"],
-  // ["blue_sunglasses", "face"],
-  ["smoky_makeup", "face"],
+  ["blue_sunglasses", "face"],
+  ["sd", "eyewear"],
   ["yellow_hat", "headgear"],
   ["blue_sunglasses", "eyewear"],
   ["green_turban", "headgear"],
-  ["sd", "eyewear"],
+  ["green_turban", "headgear"],
 ];
 
 function solution(clothes) {

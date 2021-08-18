@@ -1,13 +1,16 @@
 const { of } = require("rxjs");
 
 let cloth1 = [
-  ["crow_mask", "face"],
-  ["blue_sunglasses", "face"],
-  ["smoky_makeup", "face"],
+  // ["crow_mask", "face"],
+  // ["blue_sunglasses", "face"],
+  // ["smoky_makeup", "face"],
   // ["yellow_hat", "headgear"],
   // ["blue_sunglasses", "eyewear"],
   // ["green_turban", "headgear"],
-  // ["sd", "eyewear"],
+  ["sd", "eyewear"],
+  ["yellow_hat", "headgear"],
+  ["blue_sunglasses", "eyewear"],
+  ["green_turban", "headgear"],
 ];
 
 let cloth2 = [
