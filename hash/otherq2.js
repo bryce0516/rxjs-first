@@ -1,17 +1,15 @@
 let cloth1 = [
   // ["crow_mask", "face"],
   // ["blue_sunglasses", "face"],
-  // ["smoky_makeup", "face"],
+  ["smoky_makeup", "face"],
   ["yellow_hat", "headgear"],
   ["blue_sunglasses", "eyewear"],
   ["green_turban", "headgear"],
-  // ["sd", "eyewear"],
+  ["sd", "eyewear"],
 ];
 
 function solution(clothes) {
-  console.log(clothes);
   let count = clothes.reduce((a, c) => {
-    console.log(a[c[1]]);
     a[c[1]] = a[c[1]] ? a[c[1]] + 1 : 1;
     return a;
   }, {});
@@ -26,3 +24,4 @@ function solution(clothes) {
 }
 
 const sol = solution(cloth1);
+console.log(sol);
