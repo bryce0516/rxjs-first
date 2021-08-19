@@ -16,25 +16,29 @@ let cloth1 = [
 function solution(clothes) {
   let object2 = [];
   let object1 = [];
+  let push1 = [];
+  let push2 = [];
+  let clo = clothes;
 
-  for (let i = 0; i < clothes.length; i++) {
-    let chk = true;
-    let temp = [];
-    for (let j = 0; j < clothes.length; j++) {
-      console.log(
-        clothes[j] + " ^^^^^^^^ " + clothes[i],
-        JSON.stringify(clothes[j][1]) === JSON.stringify(clothes[i][1])
-      );
-      if (JSON.stringify(clothes[j][1]) !== JSON.stringify(clothes[i][1])) {
-        chk = false;
-        object1.push([clothes[i], clothes[j]]);
-      }
+  const recursive = (length, arr, _push1, _push2) => {
+    if (length === clo.length) {
+      return false;
     }
-    // if (chk) {
-    //   object1.push(clothes[i]);
-    // }
-  }
-  console.log("this is object1", object1);
+
+    const eliminated = arr.shift();
+    _push1.push(eliminated);
+
+    for (let i = 0; i < arr.length; i++) {}
+    console.log("arr ==> " + arr);
+    console.log("push1 ==> " + _push1);
+    console.log("length ==> " + arr.length);
+
+    return recursive(arr.length, arr, _push1, _push2);
+  };
+
+  const value = recursive(clo.length, clo, push1, push2);
+
+  console.log("this is object1", push1);
   for (let i = 0; i < clothes.length; i++) {
     object2.push(clothes[i][1]);
   }
